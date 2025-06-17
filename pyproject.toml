@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heimdall-aif-agent-sdk"
+version = "0.1.0"
+authors = [
+    { name="IAM Heimdall Team", email="contact@iamheimdall.com" },
+]
+description = "SDK for Agent Builders to interact with AIF Core Services (IE/REG)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["aif", "agent", "identity", "sdk", "jwt", "token", "heimdall"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+    "pydantic>=2.0.0,<3.0.0",
+    "httpx>=0.23.0,<1.0.0",
+    "python-dotenv>=1.0.0",
+    "PyJWT>=2.8.0",
+    "cryptography>=41.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://poc.iamheimdall.com"
+"Documentation" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python#readme"
+"Repository" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python"
+"Bug Tracker" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python/issues"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.18.0",
+    "pytest-httpx>=0.20.0",
+    "respx>=0.20.0",
+]
+dev = [
+    "heimdall-aif-agent-sdk[test]",  # Fixed: was neuprotocol-aif-agent-sdk
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=1.0.0",
+    "types-requests",
+    "bump-my-version>=0.10.0",
+]
+
+[tool.setuptools]
+packages = ["aif_agent_builder_sdk"]
+
+[tool.pytest.ini_options]
+python_files = "test_*.py"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+# addopts = "--cov=aif_agent_builder_sdk --cov-report=html"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
