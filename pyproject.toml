@@ -37,7 +37,7 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://poc.iamheimdall.com"
+"Homepage" = "https://iamheimdall.com"
 "Documentation" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python#readme"
 "Repository" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python"
 "Bug Tracker" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python/issues"
