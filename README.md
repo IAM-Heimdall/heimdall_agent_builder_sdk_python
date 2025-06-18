@@ -290,5 +290,4 @@ MIT License - see LICENSE file for details.
 
 
 ## Support
-
-- **Issues**: [GitHub Issues](https://github.com/IAM-Heimdall/heimdall-agent-builder-sdk-python/issues)
+- **Issues**: [GitHub Issues](https://github.com/IAM-Heimdall/heimdall_agent_builder_sdk_python/issues)
