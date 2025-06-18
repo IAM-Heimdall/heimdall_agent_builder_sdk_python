@@ -14,8 +14,18 @@ The official Python SDK for Agent Builders to interact with the Agent Identity F
 ## Installation
 
 ```bash
-pip install heimdall-aif-agent-sdk
+pip install heimdall-agent-builder-sdk
 ```
+
+## Quick Install & Import Reference
+
+| Action | Command |
+|--------|---------|
+| **Install** | `pip install heimdall-agent-builder-sdk` |
+| **Import** | `from aif_agent_builder_sdk import AIFClient` |
+| **Environment** | `AIF_SDK_CORE_URL`, `AIF_SDK_ISSUER_API_KEY` |
+
+> 💡 **Note**: Package name uses "heimdall" but imports use "aif" to maintain consistency with the Agent Identity Framework (AIF) API.
 
 ## Quick Start
 
@@ -77,6 +87,8 @@ asyncio.run(main())
 ### Using Context Manager (Recommended)
 
 ```python
+from aif_agent_builder_sdk import AIFClient
+
 async with AIFClient() as client:
     token = await client.request_aif_token(
         user_id="user-456",
@@ -148,6 +160,8 @@ except AIFSDKClientError as e:
 ### Client Options
 
 ```python
+from aif_agent_builder_sdk import AIFClient
+
 client = AIFClient(
     core_service_url="https://aif.example.com",
     issuer_api_key="your-api-key",
@@ -188,6 +202,8 @@ client = AIFClient(
 ### Issue Token for AI Agent
 
 ```python
+from aif_agent_builder_sdk import AIFClient
+
 async with AIFClient() as client:
     # Issue token for a content summarization agent
     token = await client.request_aif_token(
@@ -206,6 +222,8 @@ async with AIFClient() as client:
 ### Batch Token Management
 
 ```python
+from aif_agent_builder_sdk import AIFClient
+
 async with AIFClient() as client:
     # Issue multiple tokens
     tokens = []
@@ -277,6 +295,8 @@ twine upload dist/*
 
 ```python
 import logging
+from aif_agent_builder_sdk import AIFClient
+
 logging.basicConfig(level=logging.DEBUG)
 
 # Now SDK will log detailed request/response info
@@ -288,6 +308,7 @@ async with AIFClient() as client:
 
 MIT License - see LICENSE file for details.
 
-
 ## Support
+
 - **Issues**: [GitHub Issues](https://github.com/IAM-Heimdall/heimdall_agent_builder_sdk_python/issues)
+- **Repository**: [GitHub Repository](https://github.com/IAM-Heimdall/heimdall_agent_builder_sdk_python)

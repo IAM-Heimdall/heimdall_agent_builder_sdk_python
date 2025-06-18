@@ -3,18 +3,18 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "heimdall-aif-agent-sdk"
-version = "0.1.0"
+name = "heimdall-agent-builder-sdk"
+version = "0.2.0"
 authors = [
     { name="IAM Heimdall Team", email="contact@iamheimdall.com" },
 ]
-description = "SDK for Agent Builders to interact with AIF Core Services (IE/REG)."
+description = "Python SDK for Agent Builders to interact with Heimdall AIF Core Service. Install: 'pip install heimdall-agent-builder-sdk', Import: 'from aif_agent_builder_sdk import AIFClient'"
 readme = "README.md"
 requires-python = ">=3.8"
 license = { file = "LICENSE" }
-keywords = ["aif", "agent", "identity", "sdk", "jwt", "token", "heimdall"]
+keywords = ["aif", "agent", "identity", "sdk", "jwt", "token", "heimdall", "agent-builder"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
@@ -30,7 +30,7 @@ classifiers = [
 ]
 dependencies = [
     "pydantic>=2.0.0,<3.0.0",
-    "httpx>=0.23.0,<1.0.0",
+    "httpx>=0.25.0,<1.0.0",
     "python-dotenv>=1.0.0",
     "PyJWT>=2.8.0",
     "cryptography>=41.0.0",
@@ -38,9 +38,9 @@ dependencies = [
 
 [project.urls]
 "Homepage" = "https://iamheimdall.com"
-"Documentation" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python#readme"
-"Repository" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python"
-"Bug Tracker" = "https://github.com/IAM-Heimdall/heimdall-aif-agent-sdk-python/issues"
+"Documentation" = "https://github.com/IAM-Heimdall/heimdall_agent_builder_sdk_python#readme"
+"Repository" = "https://github.com/IAM-Heimdall/heimdall_agent_builder_sdk_python"
+"Bug Tracker" = "https://github.com/IAM-Heimdall/heimdall_agent_builder_sdk_python/issues"
 
 [project.optional-dependencies]
 test = [
@@ -48,9 +48,10 @@ test = [
     "pytest-asyncio>=0.18.0",
     "pytest-httpx>=0.20.0",
     "respx>=0.20.0",
+    "pytest-cov>=4.0.0",
 ]
 dev = [
-    "heimdall-aif-agent-sdk[test]",  # Fixed: was neuprotocol-aif-agent-sdk
+    "heimdall-agent-builder-sdk[test]",
     "black>=22.0.0",
     "flake8>=4.0.0",
     "mypy>=1.0.0",
@@ -58,14 +59,12 @@ dev = [
     "bump-my-version>=0.10.0",
 ]
 
-[tool.setuptools]
-packages = ["aif_agent_builder_sdk"]
+[tool.setuptools.packages.find]
+# This will automatically find your aif_agent_builder_sdk package
 
 [tool.pytest.ini_options]
 python_files = "test_*.py"
 asyncio_mode = "auto"
-asyncio_default_fixture_loop_scope = "function"
-# addopts = "--cov=aif_agent_builder_sdk --cov-report=html"
 
 [tool.mypy]
 python_version = "3.8"
